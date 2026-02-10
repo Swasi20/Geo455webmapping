@@ -1,15 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Title</title>
-        <link rel="stylesheet" href="styles.css" />
-        <script src="script.js"></script>
-    </head>
-    <body>
-        <h1 class="title">Hello World</h1>
-        <div id="mainDiv">Hello Div</div>
-        <br />
-        <button onclick="buttonClicked()">Click me</button>
-    </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GEO 455 - Lab 1</title>
+
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 0; line-height: 1.5; }
+    header, main, footer { max-width: 900px; margin: 0 auto; padding: 16px; }
+    nav a { margin-right: 12px; }
+    .hero { background: rgba(116, 102, 158, 0.45); border-radius: 12px; padding: 16px; }
+    .center { text-align: center; }
+    img { max-width: 100%; height: auto; }
+    .box { width: fit-content; height: fit-content;
+          background-color:aliceblue;
+          padding-top 10px;
+          padding-bottom 10px;
+          padding-left 10px;
+          padding-right 10px;
+          border:5px  #3c4066 solid}
+    .box
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1 class="center">Swasthika Selvakumar</h1>
+    <p class="center">GEO 455 • Web Mapping • Spring 2026</p>
+
+    <nav class="center">
+      <a href="#about">About</a>
+      <a href="#books">Books</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <>
+    <section class="hero" id="about">
+      <h2>About me</h2>
+      <p>Hi! I’m a Environmental science major interested in sustainability.</p>
+
+      <!-- IMAGE TEMPLATE (required) -->
+      <figure>
+        
+        <!-- If this file is in an images/ folder next to this HTML file, use: images/profile.jpg -->
+        <!-- If this HTML file is inside a labs/ folder, use: ../images/profile.jpg -->
+        <img src="antarctic_coast.jpg" alt="Photo antarctica" width="320">
+        <figcaption>Figure 1. This is the coast of Antarctica.</figcaption>
+      </figure>
+    </section>
+
+    <section id="movies">
+      <h2>Movies I have recently watched</h2>
+      <ul>
+        <li><a href="https://en.disneyme.com/movies/avatar-fire-and-ash" >Avatar:Fire and Ash </a></li>
+        <li><a href=" https://www.imdb.com/title/tt5950044/?ref=tt_mlt_i_6">Superman</a></li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+       
+      <p>
+        <a href="mailto:selvakumar1229@uwlax.edu?subject=GEO%20455%20Webmapping">Email me</a>
+         <a href="https://github.com/swasi20">GitHub</a>
+     
+      </p>
+    </section>
+    
+  </main>
+
+<footer class="center">
+ <div class="box"> 
+   <small><b><a href="https://swasi20.github.io/Geo455webmapping/">Back to home page</a></b> </small> </div>
+  </footer>
+</body>
 </html>

@@ -1,4 +1,4 @@
-const map = L.map("map").setView([44.97634758117221, -93.25679598189654], );
+const map = L.map("map").setView([44.97634758117221, -93.25679598189654], 5 );
 
 L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {
   maxZoom: 17,
@@ -18,6 +18,7 @@ L.marker([-74.14707388931703, 59.765619389338035])
   .addTo(map)
   .bindPopup("<b>Hello!</b><br> This is the continent Antarctica.")
   .openPopup();
+
 
 
 

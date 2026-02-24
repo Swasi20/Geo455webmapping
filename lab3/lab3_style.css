@@ -1,0 +1,82 @@
+html, body {
+  height: 100%;
+}
+/* Basic styling for the whole page */
+#body {
+    margin: 0;
+	background-color: #DDECCC;
+    font-family:" ";
+    color: black;
+}
+/* Make the map fill the entire browser window */
+#map {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+	background-color: #ffffeb;
+	height: 1000px;
+    }
+
+ #title {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 97%;
+    font-size: 2em;
+    text-align: center; 
+    font-family: "Cascadia mono", serif;
+    letter-spacing: .04em;
+    padding: 10px 15px;
+    background: #d5c2c2a6;
+    border: 1px solid #4c496d;
+    border-radius: 3px;
+    z-index: 800;
+    }
+
+ #leftmenu {
+    position: fixed;
+    top: 75px;
+    left: 10px;
+    width: 300px;
+    Float: left; 
+    height: 850px;
+    font-size: 1em;
+    font-family: "cascadia mono", serif;
+    letter-spacing: .04em;
+    padding: 10px 15px;
+    background: #d5c2c2a6;
+    border: 1px solid #4c496d;
+    border-radius: 3px;
+    z-index: 800;
+    }
+
+
+#footer {
+      position: fixed;
+    bottom: 0;
+    right: 10px;
+    width: 80%;
+    Float: left; 
+    height: 25px;
+    font-size: 1em;
+    font-family: "cascadia mono", serif;
+    letter-spacing: .04em;
+    padding: 10px 15px;
+    background: #d5c2c2a6;
+    border: 1px solid #4c496d;
+    border-radius: 3px;
+    text-align: center;
+    z-index: 800;
+    }
+#description p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+/*Style links inside the description (and hover effect)*/
+#description a {
+  color: #58517e;
+  text-decoration: none;
+}
+
+#description a:hover {
+  text-decoration: underline;
+}

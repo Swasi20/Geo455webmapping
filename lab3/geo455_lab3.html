@@ -1,15 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Title</title>
-        <link rel="stylesheet" href="styles.css" />
-        <script src="script.js"></script>
-    </head>
-    <body>
-        <h1 class="title">Hello World</h1>
-        <div id="mainDiv">Hello Div</div>
-        <br />
-        <button onclick="buttonClicked()">Click me</button>
-    </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GEO 455: Lab 2</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  
+  <!-- Make sure you put the leaflet map library AFTER Leaflet's CSS --> 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <!--Your choice of Google fonts- make sure to update in CSS file -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="lab3_style.css" />
+</head>
+   <body>
+  <div id="map"></div>
+
+   
+     <div id="title"> Lab 3: My Yellowstone trip 2023 </div>
+      <div id ="leftmenu">
+        <p>I took a road trip to Yellowstone with my family in the summer of 2023. Here are all the places we visited. 
+        </p>
+    
+        <ol type = "1">
+          <li>Yellow stone</li>
+          <li>Grand Canyon of the Yellowstone</li>
+          <li>Yellowstone Lake </li>
+          <li>Cody</li>
+          <li>Mount Rushmore National Memorial </li>
+          <li>Rushmore Tramway Adventures</li>
+          <li>Shoshone National Park</li>
+          <li> Bighorn National Forest</li>
+          <li>Mitchel Corn Palace </li>
+          <li> Medora Musical</li>
+          <li> Fargo Air Museum</li>
+    </ol> 
+       <img src="images/yellow.jpg" width="300px">
+        <p>Photo credits:Swasthika Selvakumar  </p>
+         </div>
+     <div id ="footer"> Map developed by Swasthika Selvakumar
+     <a href="https://swasi20.github.io/Geo455webmapping/"> Go home</a> </div>
+     
+        <!-- Your map code  -->
+  <script src="lab3_map.js"></script>
+</body>
 </html>

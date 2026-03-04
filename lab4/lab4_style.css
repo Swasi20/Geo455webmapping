@@ -1,0 +1,65 @@
+
+	body {
+		margin: 0;
+		padding: 0;
+		background-color: "rgba(244, 225, 225, 0.7)";
+		font-family: "Libre Franklin", serif;
+		color: #070717;
+	}
+	#title {
+		position: fixed;
+		margin-top: 0;
+		top: 10px;
+		left: 50px;
+		font-size: 2em;
+		font-family: "PT Serif", serif;
+		letter-spacing: .04em;
+		padding: 10px 15px;
+		background-color: rgba(244, 225, 225, 0.7);
+		border: 1px solid #817272;
+		border-radius: 3px;
+		z-index: 800;
+	}
+	#description h2 {
+		font-family: "Libre Franklin", serif;
+		letter-spacing: .04em;
+	}
+	#map {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+	}
+	.custom .leaflet-popup-tip,
+	.custom .leaflet-popup-content-wrapper {
+		background: #000000;
+		color: rgba(244, 225, 225, 0.7);
+	}
+	.custom .leaflet-popup-tip,
+	.custom .leaflet-popup-content-wrapper {
+		background: #000000;
+		color: rgba(244, 225, 225, 0.7);
+	}
+	#description {
+		position: fixed;
+		bottom: 20px;
+		right: 10px;
+		width: 280px;
+		padding: 0px 15px;
+		background-color: rgba(244, 225, 225, 0.7);
+		border: 1px solid #817272;
+		border-radius: 3px;
+		z-index: 800;
+	}
+	#description p {
+		font-size: .9em;
+		line-height: 1.5em;
+	}
+	#description a {
+		color: #615f86;
+		text-decoration: none;
+	}
+	#description a:hover {
+		text-decoration: underline;
+	}
+

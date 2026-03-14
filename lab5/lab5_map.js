@@ -254,20 +254,3 @@ var miniMap = new L.Control.MiniMap(miniLayer, {
 }).addTo(map);
 
 
-L.Routing.control({
-  waypoints: [
-    L.latLng(43.81362206758157, -91.22888094874386),
-    L.latLng(21.30985, -88.55625)
-  ]
-}).addTo(map);
-
-L.control.toposcale().addTo(map);
-
-L.control
-  .toposcale({
-    position: "bottomright",
-    updateWhenIdle: true,
-    thousand_separator: ".",
-    scale_separator: ":",
-  })
-  .addTo(map);

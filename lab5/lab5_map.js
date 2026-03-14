@@ -39,6 +39,7 @@ L.easyButton(
   "Home"
 ).addTo(map);
 
+
 //popups 
 var greatwallPopup =
   "Great Wall of China<br/><img src='https://upload.wikimedia.org/wikipedia/commons/d/d8/Great_Wall_of_China_%282639612640%29.jpg' alt='Great Wall' width='150px'/>";
@@ -151,6 +152,7 @@ for (var i = 0; i < wonders.length; i++) {
   })(i);
 }
 
+
 //layer control menu
 var baseLayers = {
   'Physical Geography': phyGeo,
@@ -251,3 +253,21 @@ var miniMap = new L.Control.MiniMap(miniLayer, {
   position: "bottomleft"
 }).addTo(map);
 
+
+L.Routing.control({
+  waypoints: [
+    L.latLng(43.81362206758157, -91.22888094874386),
+    L.latLng(21.30985, -88.55625)
+  ]
+}).addTo(map);
+
+L.control.toposcale().addTo(map);
+
+L.control
+  .toposcale({
+    position: "bottomright",
+    updateWhenIdle: true,
+    thousand_separator: ".",
+    scale_separator: ":",
+  })
+  .addTo(map);

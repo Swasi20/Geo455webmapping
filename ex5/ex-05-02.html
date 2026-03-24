@@ -28,7 +28,16 @@ L.tileLayer("https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_nolabels/{
     subdomains: "abcd",
     maxZoom: 19
 }).addTo(map);
-
+        
+        
+fetch("api.census.gov/data/2024/acs/acs1/spp?get=NAME,group(S0201)&for=us:1&POPGROUP=001&key=5186f58eed962f1330ea1c4457f373b86774a202")
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {  // Add GeoJSON layer to the map once the file is loaded
+        L.geoJSON(data).addTo(map);
+    });
+        
 // Load GeoJSON from an external file
 L.geoJSON(county).addTo(map);
     </script>

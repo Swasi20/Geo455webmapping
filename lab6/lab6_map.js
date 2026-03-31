@@ -26,7 +26,8 @@ var miniMap = new L.Control.MiniMap(miniLayer, {
 }).addTo(mymap);
 
 
- 
+ var  Density;
+ var  Language; 
 //chloropleth map colors
 function getColorDensity(value) {
     return value > 139 ? '#54278f':
@@ -113,7 +114,7 @@ function onEachDensityFeature(feature, layer) {
 function onEachLanguageFeature(feature, layer) {
   layer.bindPopup(
     '<strong>' + feature.properties.name + '</strong><br>' + 
-    '<span style="color:blue">' + feature.properties.density + ' non-English speakers/hectare</span>'
+    '<span style="color:blue">' + feature.properties.density + ' No English speakers/hectare</span>'
   );
   
   layer.on({
@@ -128,7 +129,7 @@ function onEachLanguageFeature(feature, layer) {
 var densitylayer = L.geoJSON(data, { style: styleDensity, onEachFeature: onEachDensityFeature }).addTo(mymap);
 
 // Add map data and choropleth colors
-
+var languagelayer = L.geoJSON(data, {style: styleLanguage, onEachFeature: onEachLanguageFeature});
 
 function buildLegendHTML(title, grades, colorFunction) {
   var html = '<div class="legend-title">' + title + '</div>';

@@ -61,7 +61,7 @@ function styleLanguage(feature){
         fillColor: getColorLanguage(feature.properties.density),   
         weight: 2,
         opacity: 1,
-        color: '#091819',
+        color: '#000000',
         fillOpacity: 0.9
     };
 } 
@@ -98,7 +98,7 @@ function resetLanguageHighlight(e) {
 //INTERACTION FUNCTIONS
 function onEachDensityFeature(feature, layer) {
   layer.bindPopup(
-    '<strong>' + feature.properties.name + '</strong><br>' + 
+    '<strong>' + feature.properties.NAME + '</strong><br>' + 
     '<span style="color:purple">' + feature.properties.pop_den + ' people/hectares</span>'
   );
   
@@ -129,7 +129,7 @@ function onEachLanguageFeature(feature, layer) {
 var densitylayer = L.geoJSON(data, { style: styleDensity, onEachFeature: onEachDensityFeature }).addTo(mymap);
 
 // Add map data and choropleth colors
-var languagelayer = L.geoJSON(data, {style: styleLanguage, onEachFeature: onEachLanguageFeature});
+var languagelayer = L.geoJSON(densityPop, {style: styleLanguage, onEachFeature: onEachLanguageFeature});
 
 function buildLegendHTML(title, grades, colorFunction) {
   var html = '<div class="legend-title">' + title + '</div>';

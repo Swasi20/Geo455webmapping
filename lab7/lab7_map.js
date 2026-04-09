@@ -50,36 +50,38 @@ var peaks = new L.geoJson(mtn_peaks, {
 
 //proportional circles//
 
+//Proportional circles//
 function getRadius(area) {
-    var radius = Math.sqrt(area/ Math.PI); 
-    return radius * 2; 
+    var radius = Math.sqrt(area/Math.PI);
+    return radius * 2;
 }
- var propcircles = new L.geoJson(mtn_peaks, {
+
+var propcircles = new L.geoJson(mtn_peaks, {
     onEachFeature: function(feature, featureLayer) {
         featureLayer.bindPopup(
             '<p>Peak Name: <b>' + feature.properties.TITLE + '</b></br>' +
             'Number of Expeditions: ' + feature.properties.number_of1 + '</p>');
     },
-     pointTolayer: function(feature, latlng){ 
-        return L.circleMarker(latlng, { 
-            fillcolor: '#920101', 
-            color:'#920101', 
-            weight: 2, 
-            radius: getRadius(feature.properties.number_of1),
-            fillOpacity:0.35
-        }).on ({ 
-            mousever: function(e){ 
-            this.openPopup(); 
-            this.setStyle ({fillOpacity:0.8, fillColor: '#2D8FAE'}); 
-            }, 
-               mouseout: function(e) {
+    pointToLayer: function(feature, latlng) {
+        return L.circleMarker(latlng, {
+            fillColor: "#920101", 
+            color: '#920101',
+            weight: 2,       
+            radius: (feature.properties.number_of1*0.06),
+            fillOpacity: 0.35
+        }).on({
+            mouseover: function(e) {
+                this.openPopup();
+                this.setStyle({fillOpacity: 0.8, fillColor: '#2D8F4E'});
+
+            },
+            mouseout: function(e) {
                 this.closePopup();
                 this.setStyle({fillOpacity: 0.35, fillColor: '#920101'});  
             }
-        }); 
-     }
-     
- }); 
+    });
+  }
+});
 
 //heatmap
 var min = 0;

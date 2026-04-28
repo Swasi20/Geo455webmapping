@@ -18,8 +18,8 @@ var daytime = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png
 });
 //--create map
 var mymap = L.map("map", {
-  center: [38.71282443933921, -101.86550516794473],
-  zoom: 5,
+  center: [45.86141340995442, -92.94383373302448],
+  zoom: 10,
   layers: [Nightview],
 });
 //MiniMAP basemap// 

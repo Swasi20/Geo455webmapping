@@ -38,7 +38,47 @@ var miniMap = new L.Control.MiniMap(miniLayer, {
 
 
 //DATA LAYERS//
+var aurora = 'https://services.swpc.noaa.gov/json/ovation_aurora_latest.json'
+var auroraLayer = L.layerGroup();
 
+function loadAurora() {
+  fetch("https://services.swpc.noaa.gov/json/ovation_aurora_latest.json")
+    .then(res => res.json())
+    .then(data => {
+      auroraLayer.clearLayers();
+
+      data.coordinates.forEach(coord => {
+        const lat = coord[0];
+        const lon = coord[1];
+        const intensity = coord[2]; // aurora strength
+
+        if (intensity > 10) { // filter weak signals
+          L.circleMarker([lat, lon], {
+            radius: 4,
+            fillColor: getAuroraColor(intensity),
+            color: "#000",
+            weight: 0.5,
+            fillOpacity: 0.7
+          })
+          .bindPopup(`Aurora intensity: ${intensity}`)
+          .addTo(auroraLayer);
+        }
+      });
+    })
+    .catch(err => console.error(err));
+}
+
+loadAurora();
+
+function getAuroraColor(intensity) {
+  return intensity > 80 ? "#ff0000" :
+         intensity > 50 ? "#ff8800" :
+         intensity > 30 ? "#ffff00" :
+         intensity > 10 ? "#00ff00" :
+                          "#00ffff";
+}
+
+auroraLayer.addTo(mymap);
 
 // Get GeoJSON data from the NWS weather alerts API
 var weatherAlertsUrl = 'https://api.weather.gov/alerts/active?area=MN,WI';
@@ -196,39 +236,45 @@ function onEachFeature(feature, layer) {
     mouseout: resetnationalfeaturesHighlight
   });
 }
+//AQS data
+var epaUrl = "https://aqs.epa.gov/data/api/dailyData/byState?email=test@aqs.api&key=test&param=45201&bdate=20240401&edate=20240401&state=55";
+var epaLayer = L.layerGroup();
 
-//air data api
-var airNowUrl = "https://www.airnowapi.org/aq/observation/latLong/current/?format=application/json&latitude=44.0&longitude=-91.0&distance=100&API_KEY=48E3AC0D-96AF-401D-9C4B-484DE81D0E36";
-var airQualityLayer = L.layerGroup();
-
-function loadAirQuality() {
-  fetch(airNowUrl)
+function loadEPAData() {
+  fetch(epaUrl)
     .then(res => res.json())
     .then(data => {
-      airQualityLayer.clearLayers(); // prevents duplicates
+      epaLayer.clearLayers();
 
-      data.forEach(obs => {
-        if (obs.Latitude && obs.Longitude) {
-          L.circleMarker([obs.Latitude, obs.Longitude], {
-            radius: 8,
-            fillColor: getAQIColor(obs.AQI),
+      if (!data.Data) return;
+
+      data.Data.forEach(site => {
+        if (site.latitude && site.longitude) {
+          L.circleMarker([site.latitude, site.longitude], {
+            radius: 6,
+            fillColor: "#2E86C1",
             color: "#000",
             weight: 1,
-            fillOpacity: 0.8
+            fillOpacity: 0.7
           })
           .bindPopup(`
-            <strong>${obs.ReportingArea}</strong><br>
-            AQI: ${obs.AQI}<br>
-            Category: ${obs.Category.Name}
+            <strong>${site.site_name || "Monitoring Site"}</strong><br>
+            Date: ${site.date_local}<br>
+            Value: ${site.arithmetic_mean}<br>
+            Parameter: ${site.parameter_name}
           `)
-          .addTo(airQualityLayer);
+          .addTo(epaLayer);
         }
       });
     })
     .catch(err => console.error(err));
 }
 
-loadAirQuality();
+loadEPAData();
+
+
+
+
 
 /* Layer control and Menu Item */
 var baseLayers = {
@@ -239,7 +285,7 @@ var baseLayers = {
 var overlays = { 
 "National Park": nationalLayer, 
 "Weather alerts": weatherLayer,
-"Air quality": airQualityLayer
+"Air quality": epaLayer
 };
 
 var layerControl = L.control.layers(baseLayers, overlays ,{ collapsed: false }).addTo(mymap);

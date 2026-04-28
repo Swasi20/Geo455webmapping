@@ -41,7 +41,7 @@ var miniMap = new L.Control.MiniMap(miniLayer, {
 
 
 // Get GeoJSON data from the NWS weather alerts API
-var weatherAlertsUrl = 'https://api.weather.gov/alerts/active?region_type=land';
+var weatherAlertsUrl = 'https://api.weather.gov/alerts/active?area=MN,WI';
  
 var weatherLayer = L.geoJSON();
 
@@ -238,14 +238,13 @@ var baseLayers = {
 };
 var overlays = { 
 "National Park": nationalLayer, 
-"Weather alerts": weatherLayer
+"Weather alerts": weatherLayer,
+"Air quality": airQualityLayer
 };
 
 var layerControl = L.control.layers(baseLayers, overlays ,{ collapsed: false }).addTo(mymap);
 
 
-
-airQualityLayer.addTo(mymap);
 
 
 

@@ -1,0 +1,49 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  min-height: calc(100vh);
+  width: 100%;
+}
+
+.legend-box { 
+    position: fixed;
+     width: 300px;
+    Float: left; 
+    height: 2000px;
+    font-size: 1em;
+    letter-spacing: .04em;
+    background: #d5c2c2a6;
+    border: 2px solid #4c496d;
+    border-radius: 3px;
+    z-index: 800;
+    }
+
+.legend-color {
+  width: 18px;
+  height: 18px;
+  margin-left: 8px;
+  border: 1px solid #999;
+  flex-shrink: 0;
+}
+
+.legend-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.legend-subtitle {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 8px;
+} 
+.moon-info {
+  background: #ffffffe6;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  box-shadow: 0 0 6px #00000033;
+}

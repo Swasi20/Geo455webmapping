@@ -2,17 +2,17 @@
 <html lang="en">
     <head> 
          <title>GEO 455 final</title>
-        
+        <link rel="stylesheet" href="about_map.css">
     </head>
 <body class="bg-light">
             
              <!-- Top bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+   <div id="header">
         <div class="container-fluid">
             <span class="navbar-brand fw-semibold">Final project</span>
             <span class="fw-semibold">GEO 455: Webmapping</span>
         </div>
-    </nav>
+   </div>
                <!-- Page layout -->
     <div class="container-fluid">
         <div class="row g-3 py-3">
@@ -21,20 +21,54 @@
             
     <div class="card">
   <h2>About this map</h2>
-  <p>This map was built for the purpose of being a helpful tool for the user to find their ideal location for stargazing</p>
-<p> Most people live under heavy artificial light which makes it helpful to find dark sky zones, urban areas to avoid, and sky brightness</p>
-    </div>
-
-<div class="card">
-  <h2>Here are the data sources used for building this map</h2>
-  <ol type="i">
-      <li><a href = "https://irma.nps.gov/DataStore/Reference/Profile/2224545?lnv" > National parks boundary</a></li> 
-            <li> <a href = "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-download#overview"> USGS protected areas database</a></li>
-            <li><a href ="https://www.census.gov/cgi-bin/geo/shapefiles/index.php">Urban areas – united states (polygon layer)</a></li>
-       <li> <a href = "https://www.earthdata.nasa.gov/topics/human-dimensions/nighttime-lights"> NASA/ NOAA VIIRS nighttime lights – Global coverage (updated yearly)</a></li></ol>
- 
+  <p>This interactive map helps users find ideal stargazing locations by highlighting dark-sky areas, national parks and reagions with minimal artifical light pollution.</p>
+<p> Most pe</p>
+<div id="main">
+    <h2 class="h2color">About this map</h2>
     <p>
- <a href = "geo455_final.html"> Go back</a>
+        This interactive map helps users find ideal stargazing locations by identifying areas with low light pollution.
+    </p>
+
+    <h2 class="h2color">How to use the map</h2>
+    <p>
+        Explore layers such as protected areas and nighttime lights to locate darker skies.
+    </p>
+<div class="card"> 
+    <h2 class="h2color">Data Sources</h2>
+    <ol>
+        <li><a href="https://irma.nps.gov/DataStore/Reference/Profile/2224545?lnv=True">National Parks Boundaries</a></li>
+        <li><a href="#">USGS Protected Areas</a></li>
+        <li><a href="https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-download#overview">Urban Areas (Census)</a></li>
+        <li><a href="#">NASA VIIRS Nighttime Lights</a></li>
+    </ol>
+    </div>
+</div>
+    <div class ="card"> 
+        <h2 class="h2color">Navigation</h2>
+        <p> Basemaps</p>
+       <div id=menulist>  
+        <ol> 
+            <li> Nighttime</li>
+            <li> streemap</li>
+        
+        </ol>
+        
+        </div>
+        </div>
+
+        <div id="leftsidebarmain"> 
+        <h2 class ="h3color"> Tools</h2>
+            <p>Search bar</p>
+            <p>Scale bar</p>
+            <p>Layer toggles</p>
+    </div>
+        <div id="rightsidebar">
+    <h3 class="h3color">Project Info</h3>
+    <p>GEO 455 Final Project</p>
+    <p>Spring 2026</p>
+</div>
+<p>     
+ <a href = "geo455_final.html">Back to map</a>
 </p>
     </div>
     

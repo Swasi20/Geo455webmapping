@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color:#192237;
+    font-family: "Lora", serif;
+    color: #222;
+}
+
+#container {
+    width: min(1400px, 95%);
+    margin: 20px auto;
+}
+
+.h2color {
+    color:#E8D7BC;
+    font-size: 1.5em;
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+}
+
+.h3color {
+    color:#E8D7BC;
+    font-size: 1em;
+    font-family: "Lora", serif;
+    margin-top: 0;
+}
+
+#header {
+    text-align: center;
+    padding: 12px 16px;
+    background-color: #E8D7BC;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#header p {
+    margin: 8px 0 0 0;
+}
+
+/* Main 3-column layout */
+.layout {
+    display: grid;
+    grid-template-columns: 240px 1fr 240px;
+    gap: 10px;
+    align-items: stretch;
+}
+
+/* Make all 3 main containers match height */
+#leftsidebarmain,
+#main,
+#rightsidebar {
+    height: 100%;
+}
+
+/* Left sidebar main container */
+#leftsidebarmain {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 15px;
+    background-color: #7B7C90;
+    border: 1px solid #192237;
+    border-radius: 3px;
+}
+
+/* Left sidebar inner boxes */
+#leftsidebar1,
+#leftsidebar2,
+#leftsidebar3 {
+    padding: 10px;
+    background-color:#7B7C90;
+    border: 1px solid #192237;
+    border-radius: 3px;
+}
+.card {
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color:#7B7C90;
+    border-radius: 5px;
+}
+
+/* Uncomment this if you want the 3 inner left boxes to be equal height */
+/*
+#leftsidebar1,
+#leftsidebar2,
+#leftsidebar3 {
+    flex: 1;
+}
+*/
+
+/* Main content */
+#main {
+    padding: 20px 30px;
+    background-color: #7B7C90;
+    border: 1px solid grey;
+    border-radius: 3px;
+    min-width: 0;
+}
+
+/* Right sidebar */
+#rightsidebar {
+    padding: 15px;
+    background-color:#7B7C90;
+    border: 1px solid #192237;
+    border-radius: 3px;
+}
+
+#rightsidebar img {
+    display: block;
+    margin: 0 auto 15px auto;
+    max-width: 100%;
+    height: auto;
+}
+
+#menulist {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 0.9em;
+}
+
+.menuitem {
+    background: #7B7C90;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-family: "Lora", serif;
+    letter-spacing: 0.04em;
+    list-style-type: none;
+    margin: 6px 0;
+    padding: 4px 6px;
+}
+
+.menuitem a {
+    text-decoration: none;
+}
+
+table {
+    font-family: "Lora", serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    text-align: left;
+    vertical-align: top;
+    padding: 6px;
+}
+

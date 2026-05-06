@@ -2,48 +2,82 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+   background-color: rgba(10, 12, 40, 0.85); 
+  color: rgba(59, 130, 246, 0.15);
 }
 
+
 #map {
-  min-height: calc(100vh);
+  min-height: 90vh;
   width: 100%;
+  color: rgba(10, 12, 40, 0.85);
 }
 
 .legend-box { 
     position: fixed;
-     width: 300px;
-    Float: left; 
+    width: 300px;
+    float: left; 
     height: 2000px;
     font-size: 1em;
     letter-spacing: .04em;
-    background: #d5c2c2a6;
-    border: 2px solid #4c496d;
-    border-radius: 3px;
+     background: rgba(10, 12, 40, 0.85); 
+    backdrop-filter: blur(8px); 
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15); 
     z-index: 800;
-    }
+    padding: 16px;
+}
+  
+
 
 .legend-color {
   width: 18px;
   height: 18px;
   margin-left: 8px;
-  border: 1px solid #999;
+  border: 1px solid #334155;
   flex-shrink: 0;
 }
 
 .legend-title {
   font-weight: 600;
   margin-bottom: 8px;
+  color: #f8fafc;
 }
+
 
 .legend-subtitle {
   font-size: 0.85rem;
-  color: #666;
+  color: #080925ff;
   margin-bottom: 8px;
 } 
 .moon-info {
-  background: #ffffffe6;
+  background: #c2c3dbff;
   padding: 8px;
   border-radius: 6px;
   font-size: 13px;
-  box-shadow: 0 0 6px #00000033;
+  color: #e2e8f0;
+  box-shadow: 0 0 10px rgba(148, 163, 184, 0.3); 
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+/* styling to overide the bootstrap */
+.card-header {
+  background-color: transparent !important;
+  color: #f8fafc !important;
+}
+.card {
+  background-color: rgba(10, 12, 40, 0.9) !important;
+  color: #e2e8f0 !important;
+  border: 1px solid rgba(148, 163, 184, 0.2) !important;
+}
+
+.leaflet-control {
+  background: rgba(15, 23, 42, 0.9) !important;
+  color: #e2e8f0 !important;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.leaflet-control-layers {
+  background: rgba(15, 23, 42, 0.95) !important;
+  color: #e2e8f0;
 }

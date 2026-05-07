@@ -3,27 +3,30 @@ html, body {
   margin: 0;
   padding: 0;
    background-color: rgba(10, 12, 40, 0.85); 
-  color: rgba(59, 130, 246, 0.15);
+  color: #e2e8f0;
 }
 
 
 #map {
   min-height: 90vh;
   width: 100%;
+  border-radius: 18px;
   color: rgba(10, 12, 40, 0.85);
 }
 
 .legend-box { 
-    position: fixed;
+    
     width: 300px;
     float: left; 
-    height: 2000px;
+    height: fit-content;
     font-size: 1em;
     letter-spacing: .04em;
-     background: rgba(10, 12, 40, 0.85); 
-    backdrop-filter: blur(8px); 
-    border: 1px solid rgba(148, 163, 184, 0.3);
+     background: rgbargba(15, 23, 42, 0.82); 
+    backdrop-filter: blur(14px); 
+    border:  1px solid rgba(255,255,255,.08);
+    border-radius: 18px;
     box-shadow: 0 0 20px rgba(59, 130, 246, 0.15); 
+    color: #e2e8f0;
     z-index: 800;
     padding: 16px;
 }
@@ -33,8 +36,8 @@ html, body {
 .legend-color {
   width: 18px;
   height: 18px;
-  margin-left: 8px;
-  border: 1px solid #334155;
+  margin-right: 10px;
+  border: 1px solid rgba(255,255,255,.1);
   flex-shrink: 0;
 }
 
@@ -47,13 +50,13 @@ html, body {
 
 .legend-subtitle {
   font-size: 0.85rem;
-  color: #080925ff;
+  color: #94a3b8;
   margin-bottom: 8px;
 } 
 .moon-info {
-  background: #c2c3dbff;
-  padding: 8px;
-  border-radius: 6px;
+  background: rgba(255,255,255,.05);
+  padding: 12px;
+  border-radius: 12px;
   font-size: 13px;
   color: #e2e8f0;
   box-shadow: 0 0 10px rgba(148, 163, 184, 0.3); 
@@ -64,6 +67,9 @@ html, body {
 .card-header {
   background-color: transparent !important;
   color: #f8fafc !important;
+  border-bottom:
+        1px solid rgba(255,255,255,.08);
+
 }
 .card {
   background-color: rgba(10, 12, 40, 0.9) !important;

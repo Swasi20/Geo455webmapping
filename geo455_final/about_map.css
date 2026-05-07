@@ -11,7 +11,7 @@ body {
 }
 
 #container {
-    width: min(1400px, 95%);
+    width: min(1500px, 95%);
     margin: 20px auto;
 }
 
@@ -20,26 +20,35 @@ body {
     font-size: 1.5em;
     font-family: "Open Sans", sans-serif;
     margin: 0;
+    font-weight: 700;
 }
 
 .h3color {
     color:#E8D7BC;
     font-size: 1em;
     font-family: "Lora", serif;
-    margin-top: 0;
+    font-weight: 500;
+    margin-bottom: 10px;
 }
 
 #header {
     text-align: center;
     padding: 12px 16px;
     background-color: #E8D7BC;
-    border: 1px solid grey;
-    border-radius: 5px;
+    border: 1px solid #192237;
+    border-radius: 14px;
     margin-bottom: 10px;
 }
 
+#header h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
 #header p {
-    margin: 8px 0 0 0;
+    margin-top: 8px;
+    color: #cbd5e1;
 }
 
 /* Main 3-column layout */
@@ -97,7 +106,7 @@ body {
 #main {
     padding: 20px 30px;
     background-color: #7B7C90;
-    border: 1px solid grey;
+    border: 1px solid #192237;
     border-radius: 3px;
     min-width: 0;
 }

@@ -38,9 +38,21 @@
     <h2 class="h2color">Data Sources</h2>
     <ol>
         <li><a href="https://irma.nps.gov/DataStore/Reference/Profile/2224545?lnv=True">National Parks Boundaries</a></li>
-        <li><a href="#">USGS Protected Areas</a></li>
-        <li><a href="https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-download#overview">Urban Areas (Census)</a></li>
-        <li><a href="#">NASA VIIRS Nighttime Lights</a></li>
+         <li>
+                    Urban Areas Dataset — 
+                    <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html" target="_blank">
+                        U.S. Census Bureau TIGER/Line Files
+                    </a>
+                    (accessed 2026). Used to represent urban development patterns.
+                </li>
+        <li><a href=" #">Weather alerts</a></li>
+        <li>
+                    VIIRS Nighttime Lights — 
+                    <a href="https://earthdata.nasa.gov/" target="_blank">
+                        NASA EarthData
+                    </a>
+                    (accessed 2026). Used to visualize light pollution intensity.
+                </li>
     </ol>
     </div>
 </div>
@@ -50,7 +62,7 @@
        <div id=menulist>  
         <ol> 
             <li> Nighttime: used to understand the light pollution in urban areas</li>
-            <li> streemap: used to</li>
+            <li> streemap: used to visualize the pathway to reach the sites</li>
             <li> Imagery</li>
         
         </ol>
@@ -69,9 +81,9 @@
                     - Name + place</li>
                  <li>Weather alerts</li>
                 </ul>
-                <p>🔍 Search bar is an interactive feature that allows the users to find specific parks which is helpful If they want to check if that specific park is optimal for stargazing or not.</p>
+                <p>🔍 Search bar is an interactive feature that allows the users to find specific parks which is helpful If they want to check if that specific park is optimal for stargazing or not. This was chosen to serve audiences who might not have a need for exploration since the map is mostly catered towards those that are hoping to explore unknown areas. </p>
                 <p> Scale bar</p>
-                <p> Moon phase</p>
+                <p> Moon phase updated directly from the local pc</p>
               
 
                 
@@ -79,8 +91,33 @@
 
         <div id="rightsidebar">
     <h3 class="h3color">Project Info</h3>
-             <p> methodology</p>
+            
+        <!-- Methods -->
+        <div class="card">
+            <h2 class="h2color">Methods</h2>
+
+            <ul>
+                <li>Downloaded and cleaned datasets from federal GIS data sources.</li>
+                <li>Clipped and simplified layers to improve web map performance.</li>
+                <li>Converted datasets into web-friendly formats for easy display using ArcGIS pro.</li>
+                <li>Built the interactive map using HTML, CSS, JavaScript, and Leaflet.</li>
+                <li>Added interactive controls including search, layer toggles, and popups.</li>
+                <li>Published the final project on github.</li>
+            </ul>
+        </div>
             <img src='method.png'>
+            
+             <div class="card">
+            <h2 class="h2color">Limitations and Credits</h2>
+
+            <p>
+                Nighttime light data represents general light intensity and does not reflect temporary conditions such as weather or local lighting changes. 
+                Some national parks may also have limited nighttime public access.
+            </p>
+            <ul> 
+                <li> NASA </li>
+                 <li>Open-meteo</li>
+                </ul>
     <p>GEO 455 Final Project</p>
     <p>Spring 2026</p>
 </div>

@@ -94,36 +94,21 @@ function getAuroraColor(intensity) {
 
 auroraLayer.addTo(mymap);
 
-//cloud cover weather control
-var weatherControl = L.control({ position: 'topright' });
-
-weatherControl.onAdd = function () {
-
-  this._div = L.DomUtil.create('div', 'info weather-info');
-
-  this._div.innerHTML = `
-    Loading weather...
-  `;
-
-  return this._div;
-};
-
-weatherControl.addTo(mymap);
 
 //cloud cover data from openmeteo
-var weatherUrl =
+var cloudlayer =
 'https://api.open-meteo.com/v1/forecast?latitude=46.7296&longitude=-94.6859&hourly=cloud_cover,visibility';
 
-fetch(weatherUrl)
+fetch(cloudlayer)
   .then(response => response.json())
   .then(data => {
 
     // first hourly values
     var cloud = data.hourly.cloud_cover[0];
     var visibility = data.hourly.visibility[0];
-
-    weatherControl._div.innerHTML = `Cloud Cover: <strong>${cloud}%</strong><br> Visibility: <strong>${visibility} m</strong>`;
-  
+    document.getElementById("cloud-panel").innerHTML = `
+      <strong>Cloud Cover:</strong> ${cloud}%<br>
+      <strong>Visibility:</strong> ${visibility} m`;
   });
 
 //national parks layer and styling
@@ -159,48 +144,6 @@ var observatoriesLayer = L.geoJSON(observatories, {
   }
 }).addTo(mymap);
 
-//planets api usinf fetch
-var planetsUrl =
-"https://api.visibleplanets.dev/v3?latitude=46.7296&longitude=-94.6859";
-
-var planetsControl = L.control({ position: 'bottomleft' });
-
-planetsControl.onAdd = function () {
-  this._div = L.DomUtil.create('div', 'info planets');
-  this._div.innerHTML = "Loading planets...";
-  return this._div;
-};
-
-planetsControl.addTo(mymap);
-
-fetch(planetsUrl)
-  .then(res => res.json())
-  .then(data => {
-
-    console.log("PLANETS DATA:", data);
-
-    let planets = data.data;
-
-    let html = "<h4>Visible Planets</h4>";
-
-    planets.forEach(p => {
-
-      if (p.aboveHorizon) {
-        html += `
-          🪐 <strong>${p.name}</strong><br>
-          Alt: ${p.altitude.toFixed(1)}°<br>
-          Az: ${p.azimuth.toFixed(1)}°<br><br>
-        `;
-      }
-    });
-
-    planetsControl._div.innerHTML = html;
-
-  })
-  .catch(err => {
-    console.error(err);
-    planetsControl._div.innerHTML = "Failed to load planets";
-  });
 //CONTROLS
 //default home view
 var homeCenter = mymap.getCenter();
@@ -214,6 +157,41 @@ L.easyButton(
   }, 
   "Home"
 ).addTo(mymap);
+
+
+
+//alerts layer
+var weatherAlertsUrl = 'https://api.weather.gov/alerts/active?area=MN';
+ 
+var weatherLayer = L.geoJSON();
+
+fetch(weatherAlertsUrl)
+  .then(response => response.json())
+  .then(data => {
+    console.log("Features:", data.features.length);
+
+    const validFeatures = data.features.filter(f => f.geometry);
+
+    weatherLayer.addData({
+      type: "FeatureCollection",
+      features: validFeatures
+    });
+
+    weatherLayer.setStyle(function(feature) {
+      let alertColor = 'orange';
+      if (feature.properties.severity === 'Severe') {
+        alertColor = 'red';
+      }
+      return { color: alertColor };
+    });
+
+    weatherLayer.eachLayer(function(layer) {
+      layer.bindPopup(layer.feature.properties.headline);
+    });
+
+    weatherLayer.addTo(mymap); 
+  })
+  .catch(error => console.error('Error:', error));
 
 
 //SEARCH FUNCTION//
@@ -274,6 +252,39 @@ moonControl.onAdd = function () {
 };
 
 moonControl.addTo(mymap);
+
+//planets api usinf fetch
+var planetsUrl =
+"https://api.visibleplanets.dev/v3?latitude=46.7296&longitude=-94.6859";
+
+
+
+fetch(planetsUrl)
+  .then(res => res.json())
+  .then(data => {
+
+    console.log("PLANETS DATA:", data);
+
+    let planets = data.data;
+
+    let html = "<h4>Visible Planets</h4>";
+
+    planets.forEach(p => {
+
+      if (p.aboveHorizon) {
+        html += `🪐<strong>${p.name}</strong><br>
+          Alt: ${p.altitude.toFixed(1)}°<br>
+          Az: ${p.azimuth.toFixed(1)}°<br><br>`;
+      }
+    });
+
+    document.getElementById("planets-panel").innerHTML = html;
+
+  })
+  .catch(err => {
+    console.error(err);
+   document.getElementById("planets-panel").innerHTML = "Failed to load planets";
+  });
 //Pop up
 
 function highlightFeature(e) {
@@ -308,16 +319,8 @@ function onEachFeature(feature, layer) {
   });
 }
 
-var lightPollution = L.imageOverlay(
-  "NorthAmerica2024B.png",
-  [[15, -170], [75, -50]],  // approximate North America bounds
-  {
-    opacity: 0.6,
-    attribution: "Light pollution map"
-  }
-);
 
-lightPollution.addTo(mymap);
+
 /* Layer control and Menu Item */
 var baseLayers = {
   'streets': daytime,
@@ -326,11 +329,12 @@ var baseLayers = {
 };
 var overlays = { 
   "National Park": nationalLayer, 
-  "Observatories": observatoriesLayer
+  "Observatories": observatoriesLayer,
+  "Weather alerts": weatherLayer 
+
 };
 
 var layerControl = L.control.layers(baseLayers, overlays ,{ collapsed: false }).addTo(mymap);
-
 
 
 

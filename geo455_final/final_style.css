@@ -11,8 +11,9 @@ html, body {
   min-height: 90vh;
   width: 100%;
   border-radius: 18px;
-  color: rgba(10, 12, 40, 0.85);
+  color: rgb(10, 12, 40);
 }
+
 
 .legend-box { 
     
@@ -21,9 +22,9 @@ html, body {
     height: fit-content;
     font-size: 1em;
     letter-spacing: .04em;
-     background: rgbargba(15, 23, 42, 0.82); 
+    background:rgb(10, 12, 40); 
     backdrop-filter: blur(14px); 
-    border:  1px solid rgba(255,255,255,.08);
+    border:  1px solid #f8fafc;
     border-radius: 18px;
     box-shadow: 0 0 20px rgba(59, 130, 246, 0.15); 
     color: #e2e8f0;
@@ -37,7 +38,7 @@ html, body {
   width: 18px;
   height: 18px;
   margin-right: 10px;
-  border: 1px solid rgba(255,255,255,.1);
+  border: 1px solid #f8fafc;
   flex-shrink: 0;
 }
 
@@ -50,7 +51,7 @@ html, body {
 
 .legend-subtitle {
   font-size: 0.85rem;
-  color: #94a3b8;
+  color: #f8fafc;
   margin-bottom: 8px;
 } 
 .moon-info {
@@ -72,18 +73,74 @@ html, body {
 
 }
 .card {
-  background-color: rgba(10, 12, 40, 0.9) !important;
+  background-color: rgb(10, 12, 40) !important;
   color: #e2e8f0 !important;
-  border: 1px solid rgba(148, 163, 184, 0.2) !important;
+  border: 1px solid #f8fafc !important;
 }
 
 .leaflet-control {
   background: rgba(15, 23, 42, 0.9) !important;
   color: #e2e8f0 !important;
-  border: 1px solid rgba(148, 163, 184, 0.3);
+  border: 1px solid #e2e8f0;
 }
 
 .leaflet-control-layers {
   background: rgba(15, 23, 42, 0.95) !important;
   color: #e2e8f0;
+}
+
+/* RIGHT SIDEBAR */
+
+.sidebar {
+  background: rgba(10, 12, 40, 0.92);
+  border-radius: 18px;
+  padding: 18px;
+  color: #e2e8f0;
+  height: 60vh;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto;
+
+}
+
+/* spacing between sections */
+
+.sidebar-section {
+  margin-bottom: 10px;
+}
+
+/* divider lines */
+
+.sidebar hr {
+  border-color: #f8fafc;
+  margin: 16px 0;
+}
+
+/* planets + cloud sections */
+
+#planets-panel,
+#cloud-panel {
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+/* sidebar headings */
+
+.sidebar h2,
+.sidebar h3 {
+  color: #f8fafc;
+  margin-bottom: 10px;
+}
+
+/* about link */
+
+.sidebar a {
+  color: #93c5fd;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
 }

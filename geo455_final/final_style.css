@@ -26,7 +26,7 @@ html, body {
     backdrop-filter: blur(14px); 
     border:  1px solid #f8fafc;
     border-radius: 18px;
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15); 
+    box-shadow: 0 0 20px #f8fafc; 
     color: #e2e8f0;
     z-index: 800;
     padding: 16px;
@@ -96,7 +96,7 @@ html, body {
   border-radius: 18px;
   padding: 18px;
   color: #e2e8f0;
-  height: 70vh;
+  height: 60vh;
 
   display: flex;
   flex-direction: column;
@@ -137,10 +137,22 @@ html, body {
 /* about link */
 
 .sidebar a {
-  color: #93c5fd;
+  color: rgb(10, 12, 40);
   text-decoration: none;
 }
 
 .sidebar a:hover {
   text-decoration: underline;
+}
+.sidebar p,
+.sidebar li,
+.sidebar span,
+.sidebar div {
+  color: rgb(10, 12, 40);
+}
+.sidebar * {
+  color: rgb(10, 12, 40) !important;
+}
+.sidebar {
+  background: rgb(10, 12, 40);
 }

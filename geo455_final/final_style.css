@@ -144,15 +144,7 @@ html, body {
 .sidebar a:hover {
   text-decoration: underline;
 }
-.sidebar p,
-.sidebar li,
-.sidebar span,
-.sidebar div {
-  color: rgb(10, 12, 40);
-}
-.sidebar * {
-  color: rgb(10, 12, 40) !important;
-}
+
 .sidebar {
   background: rgb(10, 12, 40);
 }
